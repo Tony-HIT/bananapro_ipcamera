@@ -56,21 +56,21 @@
 			<p><a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
 		</div>
 		<div style="top:460px;">
-			<input class="label" type="text" value="播放器类型：" readonly="true" />
+			<input class="label" type="text" value="Player Type ：" readonly="true" />
 			<select id="select">
-				<option value="" >请选择...</option>
-				<option value="http">HTTP播放器</option>
-				<option value="rtmp">RTMP播放器</option>
+				<option value="" >Please Select...</option>
+				<option value="http">HTTP Player</option>
+				<option value="rtmp">RTMP Player</option>
 			</select>
 		</div>
 		<div id="videoModel" style="top:490px;display:none;"></div>
 		
 		<div style="top:550px;left:550px;">
-			<input id="surebtn" type="button" value="确 定" style="width:50px;height:25px;"/>
+			<input id="surebtn" type="button" value="Enter" style="width:50px;height:25px;"/>
 		</div>
 	</div>
 	<div id="log" style="top:30px;left:650px;width:600px;height:450px;border:1px solid #000;overflow:auto;font-size:12px;"></div>
-	<div style="top:610px;left:30px;color:#333;font-size:12px;">注：本测试播放器仅供直播测试频道流是否畅通正常，不具有与线上播放器相同的复杂逻辑处理机制</div>
+	<div style="top:610px;left:30px;color:#333;font-size:12px;">Comment：This player is just for testing.</div>
 	
 	<script language="javascript">
 		var _logtxt = '';
@@ -80,7 +80,7 @@
 			
 			$value = this.options[this.options.selectedIndex].value;
 			
-			var $firstlabelValue = ($value=='http')?'频道GUID：':'RTMP地址：';
+			var $firstlabelValue = ($value=='http')?'Chanel GUID：':'RTMP Address ：';
 			var $secondlabelValue = ($value=='http')?'CDN IP：':'FileName：';
 			
 			$('#videoModel').css('display',($value!='')?'block':'none');
@@ -114,13 +114,13 @@
 		
 		$('#surebtn').live('click',function(ev){
 			if ($value == ""){
-				alert('请选择播放器类型！！');
+				alert('Please select the player type！！');
 				return;
 			} else if ($value == "http" && ($('#httpType').attr('value') == '' || $('#httpName').attr('value') == '')){
-				alert('请完整填写 频道GUID 和 CDN IP ！！');
+				alert('Please fill in Chanel GUID and CDN IP ！！');
 				return;
 			} else if ($value == "rtmp" && ($('#rtmpType').attr('value') == '' || $('#rtmpName').attr('value') == '')){
-				alert('请完整填写 RTMP地址 和 fileName ！！');
+				alert('Please fill in the full RTMP address and fileName ！！');
 				return;
 			}
 			
