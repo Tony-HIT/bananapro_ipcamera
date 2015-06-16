@@ -34,7 +34,7 @@
 			padding:0;
 		}
 		input.label {
-			width:75px;
+			width:100px;
 			height:20px;
 			border:0;
 		}
@@ -43,7 +43,7 @@
 		}
 		input.dynamic {
 			position:absolute;
-			width:520px;
+			width:495px;
 			height:20px;
 		}
 	</style>
@@ -56,21 +56,21 @@
 			<p><a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
 		</div>
 		<div style="top:460px;">
-			<input class="label" type="text" value="Player Type ：" readonly="true" />
+			<input class="label" type="text" value="Player Type " readonly="true" />
 			<select id="select">
 				<option value="" >Please Select...</option>
 				<option value="http">HTTP Player</option>
 				<option value="rtmp">RTMP Player</option>
 			</select>
 		</div>
-		<div id="videoModel" style="top:490px;display:none;"></div>
+		<div id="videoModel" style="top:510px;display:none;"></div>
 		
-		<div style="top:550px;left:550px;">
+		<div style="top:570px;left:550px;">
 			<input id="surebtn" type="button" value="Enter" style="width:50px;height:25px;"/>
 		</div>
 	</div>
 	<div id="log" style="top:30px;left:650px;width:600px;height:450px;border:1px solid #000;overflow:auto;font-size:12px;"></div>
-	<div style="top:610px;left:30px;color:#333;font-size:12px;">Comment：This player is just for testing.</div>
+	<div style="top:630px;left:30px;color:#333;font-size:12px;">Comment：This player is just for testing.</div>
 	
 	<script language="javascript">
 		var _logtxt = '';
@@ -80,8 +80,8 @@
 			
 			$value = this.options[this.options.selectedIndex].value;
 			
-			var $firstlabelValue = ($value=='http')?'Chanel GUID：':'RTMP Address ：';
-			var $secondlabelValue = ($value=='http')?'CDN IP：':'FileName：';
+			var $firstlabelValue = ($value=='http')?'Chanel GUID：':'RTMP Address ';
+			var $secondlabelValue = ($value=='http')?'CDN IP：':'FileName ';
 			
 			$('#videoModel').css('display',($value!='')?'block':'none');
 			
