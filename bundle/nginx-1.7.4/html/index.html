@@ -27,6 +27,11 @@
 			"altContent", "600", "450", "10.0.0", 
 			"expressInstall.swf", 
 			flashvars, params, attributes);
+		function gethost(){
+              var url = document.location.host;
+              var urll = "http://"+url+":8080/index.html";
+              var c = document.getElementById("myIframe").src=urll;
+		}
 	</script>
 	<style type="text/css">
 		*{ 
@@ -46,9 +51,14 @@
 			width:495px;
 			height:20px;
 		}
+		iframe.myIFrame {
+                        position:relative;
+                        width:600px;
+                        height:400px;
+                }
 	</style>
 </head>
-<body>
+<body onload="gethost()">
 	
 	<div style="top:30px;left:30px;background-color:#666;">
 		<div id="altContent">
@@ -69,7 +79,20 @@
 			<input id="surebtn" type="button" value="Enter" style="width:50px;height:25px;"/>
 		</div>
 	</div>
-	<div id="log" style="top:30px;left:650px;width:600px;height:450px;border:1px solid #000;overflow:auto;font-size:12px;"></div>
+
+	<div style="top:30px;left:650px;width:650px;height:850px;overflow:auto;">
+	<div id="log" style="top:30px;left:25px;width:600px;height:200px;border:1px solid #000;overflow:auto;font-size:12px;position:relative"></div>
+	
+
+      <iframe style="top:20px;left:25px"
+                id="myIframe" class ="myIFrame" src="car_control/index.html"
+                frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        </iframe>
+
+	</div>
+
+
+
 	<div style="top:630px;left:30px;color:#333;font-size:12px;">Comment：This player is just for testing.</div>
 	
 	<script language="javascript">
@@ -103,7 +126,13 @@
 			var $html = [];
 			$html.push('<div>');
 			$html.push('<input class="label" type="text" value="'+first+'" readOnly="true" />');
-			$html.push('<input class="dynamic" id="'+id+'Type" type="text" value="" />');
+			if (first == "RTMP Address ") {
+				var host = "rtmp://"+document.location.host+":1936/publish";
+				 
+				$html.push('<input class="dynamic" id="'+id+'Type" type="text" value="'+host+'" />');
+
+			}else
+			    $html.push('<input class="dynamic" id="'+id+'Type" type="text" value="" />');
 			$html.push('</div>');
 			$html.push('<div style="top:30px;">');
 			$html.push('<input class="label" type="text" value="'+second+'" readOnly="true" />');
@@ -139,5 +168,7 @@
 			$('#log').scrollTop($('#log')[0].scrollHeight);
 		}
 	</script>
+
+	
 </body>
 </html>
